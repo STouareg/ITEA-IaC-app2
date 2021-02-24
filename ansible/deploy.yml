@@ -11,6 +11,7 @@
         image: wordpress
         pull: true
         state: started
+        recreate: yes
         restart: yes
         ports:
           - "80:80"
