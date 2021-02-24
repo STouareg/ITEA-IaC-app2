@@ -16,8 +16,8 @@
         ports:
           - "80:80"
       
-#    - name: In container
-#      command: docker exec wordpress /bin/bash "mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php & service apache2 restart "
+    - name: In container
+      command: docker exec -d wordpress /bin/bash "mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php & service apache2 restart "
 
 #    - name: Copy sample config file
 #      command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
