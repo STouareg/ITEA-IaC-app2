@@ -4,10 +4,13 @@
   become: yes
 
   tasks:
-    - name: Create exam-iac-app2
+
+    - name:  include_vars
       include_vars:
         file: db-address.mysql
         name: db    
+
+    - name: Create exam-iac-app2
       docker_container:
         name: wordpress
         image: wordpress
