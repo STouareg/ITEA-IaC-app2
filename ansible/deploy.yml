@@ -15,7 +15,7 @@
         restart: yes
         ports:
           - "80:80"
-        command: "mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php"
+        command: "mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php & service apache2 restart"
 
 #    - name: Copy sample config file
 #      command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
