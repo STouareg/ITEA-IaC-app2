@@ -24,7 +24,7 @@ jobs:
           workflow: terrafrom.yml
           workflow_conclusion: success
           name: terraform
-          repo: STouareg/ITEA-IaC
+          repo: STouareg/ITEA-IaC-archive
 
       - id: host
         env:
