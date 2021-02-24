@@ -2,12 +2,12 @@
   gather_facts: false
   hosts: [all]
   become: yes
-  include_vars:
-    file: db-address.mysql
-    name: db    
 
   tasks:
     - name: Create exam-iac-app2
+      include_vars:
+        file: db-address.mysql
+        name: db    
       docker_container:
         name: wordpress
         image: wordpress
