@@ -17,7 +17,7 @@
           - "80:80"
       
     - name: In container
-      command: docker exec -it wordpress /bin/bash -c 'cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php'
+      command: docker exec wordpress /bin/bash -c 'cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php'
 
 #    - name: Copy sample config file
 #      command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
