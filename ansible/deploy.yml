@@ -5,6 +5,15 @@
 
   tasks:
 
+    - id: host
+      env:
+        SSH: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        db=$(cat terraform.log | grep -w rds_endpoint)
+        db=$(grep "rds_endpoint" terraform.log | awk -F  ":" '{print $1}' )
+        db=${db//'rds_endpoint = "'}
+
+
     - name: Create exam-iac-app2
       docker_container:
         name: wordpress
@@ -18,28 +27,7 @@
         env:
           WORDPRESS_DB_HOST: $db
 #terraform-20210223082716228000000001.c3texek9fy5h.eu-central-1.rds.amazonaws.com
-
           WORDPRESS_DB_USER: iteauser
           WORDPRESS_DB_PASSWORD: q1q1q1q1
           WORDPRESS_DB_NAME: iteadb
 
-#    - name: In container
-#      command: docker exec wordpress /bin/bash -c 'cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php'
-
-#    - name: Copy sample config file
-#      command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
-
-#    - name: Update Wordpress config file
-#      lineinfile:
-#        path: /var/www/html/wp-config.php
-#        regexp: "{{item.regexp}}"
-#        line: "{{item.line}}"
-#      with_items:
-#        - {'regexp': "define\\( 'DB_NAME', '(.)+' \\);", 'line': "define( 'DB_NAME', 'iteadb' );"}
-#        - {'regexp': "define\\( 'DB_USER', '(.)+' \\);", 'line': "define( 'DB_USER', 'iteauser' );"}
-#        - {'regexp': "define\\( 'DB_PASSWORD', '(.)+' \\);", 'line': "define( 'DB_PASSWORD', 'q1q1q1q1' );"}
-
-#    - name: Restart Apache
-#      service:
-#        name: apache2
-#        state: restarted
