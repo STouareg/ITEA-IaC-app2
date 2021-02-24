@@ -3,13 +3,10 @@
   hosts: [all]
   become: yes
 
+  vars_files:
+    - db-address.mysql
+
   tasks:
-
-    - name:  include_vars
-      include_vars:
-        file: db-address.mysql
-        name: db    
-
     - name: Create exam-iac-app2
       docker_container:
         name: wordpress
