@@ -43,7 +43,7 @@ jobs:
             db=$(cat terraform.log | grep -w rds_endpoint)
             db=$(grep "rds_endpoint" terraform.log | awk -F  ":" '{print $1}' )
             db=${db//'rds_endpoint = "'}
-            echo $db > ansible/db-address
+            echo $db > ansible/db-address.mysql
 
       - name: Ansible
         uses: saubermacherag/ansible-playbook-docker-action@v1.3

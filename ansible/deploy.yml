@@ -3,7 +3,7 @@
   hosts: [all]
   become: yes
   include_vars:
-    file: db-address
+    file: db-address.mysql
     name: db    
 
   tasks:
