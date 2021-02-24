@@ -40,6 +40,9 @@ jobs:
             echo 'ubuntu-ITEA-2 ansible_host='$host2 >> ansible/hosts    
             echo "$SSH" > ansible/key.pem
             chmod 400 ansible/key.pem
+            db=$(cat terraform.log | grep -w rds_endpoint)
+            db=$(grep "rds_endpoint" terraform.log | awk -F  ":" '{print $1}' )
+            db=${db//'rds_endpoint = "'}
 
       - name: Ansible
         uses: saubermacherag/ansible-playbook-docker-action@v1.3
