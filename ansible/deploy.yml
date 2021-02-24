@@ -13,6 +13,9 @@
         state: started
         ports:
           - "80:80"
+        service:
+          name: apache2
+          state: restarted
 #        command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 
 #    - name: Copy sample config file
