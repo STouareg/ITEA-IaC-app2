@@ -2,7 +2,7 @@
   gather_facts: false
   hosts: [all]
   become: yes
-  include_vars:
+  vars:
     file: db-address.mysql
     name: db    
 
