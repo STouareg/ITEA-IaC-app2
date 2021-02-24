@@ -15,9 +15,14 @@
         restart: yes
         ports:
           - "80:80"
-      
-    - name: In container
-      command: docker exec wordpress /bin/bash -c 'cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php'
+        env:
+          - WORDPRESS_DB_HOST=&db:3306
+          - WORDPRESS_DB_USER=iteauser
+          - WORDPRESS_DB_PASSWORD=q1q1q1q1
+          - WORDPRESS_DB_NAME=iteadb
+
+#    - name: In container
+#      command: docker exec wordpress /bin/bash -c 'cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php'
 
 #    - name: Copy sample config file
 #      command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
