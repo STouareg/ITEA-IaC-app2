@@ -13,7 +13,7 @@
         state: started
         ports:
           - "80:80"
-        command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+#        command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 
 #    - name: Copy sample config file
 #      command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
