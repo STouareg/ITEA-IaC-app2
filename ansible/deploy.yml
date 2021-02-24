@@ -25,7 +25,7 @@
         ports:
           - "80:80"
         env:
-          WORDPRESS_DB_HOST: $db
+          WORDPRESS_DB_HOST: {{db}}
 #terraform-20210223082716228000000001.c3texek9fy5h.eu-central-1.rds.amazonaws.com
           WORDPRESS_DB_USER: iteauser
           WORDPRESS_DB_PASSWORD: q1q1q1q1
